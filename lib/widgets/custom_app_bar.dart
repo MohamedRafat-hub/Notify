@@ -1,21 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tasky_app/views/widgets/custom_icon.dart';
+import 'package:tasky_app/widgets/custom_icon.dart';
 
-class TasksViewBody extends StatelessWidget {
-  const TasksViewBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 40,
-        ),
-        CustomAppBar(),
-      ],
-    );
-  }
-}
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -34,5 +19,3 @@ class CustomAppBar extends StatelessWidget {
     );
   }
 }
-
-
