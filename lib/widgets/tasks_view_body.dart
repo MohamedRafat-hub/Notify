@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasky_app/widgets/custom_app_bar.dart';
 import 'package:tasky_app/widgets/note_item.dart';
+import 'package:tasky_app/widgets/notes_list_view.dart';
 
 class TasksViewBody extends StatelessWidget {
   const TasksViewBody({super.key});
@@ -15,12 +16,11 @@ class TasksViewBody extends StatelessWidget {
             height: 40,
           ),
           CustomAppBar(),
-          NoteItem(),
+          Expanded(child: NotesListView()),
         ],
       ),
     );
   }
 }
-
 
 
