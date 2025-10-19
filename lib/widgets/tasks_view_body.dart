@@ -22,5 +22,3 @@ class TasksViewBody extends StatelessWidget {
     );
   }
 }
-
-
