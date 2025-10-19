@@ -21,7 +21,7 @@ class NotesView extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
         ),
       ),
-      body: TasksViewBody(),
+      body: NotesViewBody(),
     );
   }
 }

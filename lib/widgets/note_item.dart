@@ -1,47 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tasky_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin:  const EdgeInsets.only(bottom: 8),
-      padding: EdgeInsets.only(top: 16 , bottom: 16 , left: 16),
-      decoration: BoxDecoration(
-        color: Color(0xffFFCD7A),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          ListTile(
-            title: Text(
-              'Flutter Tips',
-              style: TextStyle(color: Colors.black, fontSize: 25),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Text(
-                'Build your career with Mohamed Rafat',
-                style: TextStyle(fontSize: 16, color:  Colors.black.withValues(alpha: .4)),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return EditNoteView();
+        }));
+      },
+      child: Container(
+        margin:  const EdgeInsets.only(bottom: 8),
+        padding: EdgeInsets.only(top: 16 , bottom: 16 , left: 16),
+        decoration: BoxDecoration(
+          color: Color(0xffFFCD7A),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ListTile(
+              title: Text(
+                'Flutter Tips',
+                style: TextStyle(color: Colors.black, fontSize: 25),
+              ),
+              subtitle: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: Text(
+                  'Build your career with Mohamed Rafat',
+                  style: TextStyle(fontSize: 16, color:  Colors.black.withValues(alpha: .4)),
+                ),
+              ),
+              trailing: Icon(
+                FontAwesomeIcons.trash,
+                color: Colors.black,
+                size: 30,
               ),
             ),
-            trailing: Icon(
-              FontAwesomeIcons.trash,
-              color: Colors.black,
-              size: 30,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Text(
+                'October 19 2025',
+                style: TextStyle(color: Colors.black.withValues(alpha: .4)),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Text(
-              'October 19 2025',
-              style: TextStyle(color: Colors.black.withValues(alpha: .4)),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

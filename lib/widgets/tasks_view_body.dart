@@ -3,8 +3,8 @@ import 'package:tasky_app/widgets/custom_app_bar.dart';
 import 'package:tasky_app/widgets/note_item.dart';
 import 'package:tasky_app/widgets/notes_list_view.dart';
 
-class TasksViewBody extends StatelessWidget {
-  const TasksViewBody({super.key});
+class NotesViewBody extends StatelessWidget {
+  const NotesViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,10 @@ class TasksViewBody extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          CustomAppBar(),
+          CustomAppBar(
+            title: 'Notes',
+            iconButton: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+          ),
           Expanded(child: NotesListView()),
         ],
       ),
