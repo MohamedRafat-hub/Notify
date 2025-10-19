@@ -12,7 +12,7 @@ class TaskyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TasksView(),
+      home: NotesView(),
       theme: ThemeData(
         brightness: Brightness.dark,
         fontFamily: 'Poppins',

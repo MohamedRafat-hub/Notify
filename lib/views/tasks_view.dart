@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tasky_app/widgets/tasks_view_body.dart';
 
 
-class TasksView extends StatelessWidget {
-  const TasksView({super.key});
+class NotesView extends StatelessWidget {
+  const NotesView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class TaskItem extends StatelessWidget {
-  const TaskItem({super.key});
+class NoteItem extends StatelessWidget {
+  const NoteItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin:  const EdgeInsets.symmetric(vertical: 12),
-      padding: EdgeInsets.only(top: 24 , bottom: 24 , left: 16),
+      padding: EdgeInsets.only(top: 16 , bottom: 16 , left: 16),
       decoration: BoxDecoration(
         color: Color(0xffFFCD7A),
         borderRadius: BorderRadius.circular(16),

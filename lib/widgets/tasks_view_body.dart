@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tasky_app/widgets/custom_app_bar.dart';
-import 'package:tasky_app/widgets/task_item.dart';
+import 'package:tasky_app/widgets/note_item.dart';
 
 class TasksViewBody extends StatelessWidget {
   const TasksViewBody({super.key});
@@ -16,11 +15,12 @@ class TasksViewBody extends StatelessWidget {
             height: 40,
           ),
           CustomAppBar(),
-          TaskItem(),
+          NoteItem(),
         ],
       ),
     );
   }
 }
+
 
 
