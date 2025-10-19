@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasky_app/views/tasks_view.dart';
+import 'package:tasky_app/views/notes_view.dart';
 
 void main()
 {
