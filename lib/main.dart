@@ -8,6 +8,7 @@ import 'package:tasky_app/views/notes_view.dart';
 void main() async
 {
   await Hive.initFlutter();
+  Hive.registerAdapter(NoteModelAdapter());  // to be act with Note Model objects
   await Hive.openBox<NoteModel>(KNotesBox);
   runApp(TaskyApp());
 }
