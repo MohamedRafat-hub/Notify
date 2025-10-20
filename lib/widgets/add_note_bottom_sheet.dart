@@ -14,7 +14,14 @@ class AddNoteBottomSheet extends StatelessWidget {
       child: SingleChildScrollView(
         child: BlocProvider(
           create: (context) => AddNoteCubit(),
-          child: AddNoteForm(),
+          child: BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return AbsorbPointer(
+                absorbing: state is AddNoteLoading ? true : false,
+                  child: AddNoteForm()
+              );
+            },
+          ),
         ),
       ),
     );

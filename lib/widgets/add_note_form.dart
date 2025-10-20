@@ -31,10 +31,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
             ),
           );
         }
-        if(state is AddNoteSuccess)
-          {
-            Navigator.pop(context);
-          }
+        if (state is AddNoteSuccess) {
+          Navigator.pop(context);
+        }
       },
       child: Form(
         key: formKey,
@@ -58,16 +57,23 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 subTitle = value;
               },
             ),
-            CustomButton(
-              onTap: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                  NoteModel note = NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.blue.g);
-                  BlocProvider.of<AddNoteCubit>(context).addNote(note);
-                } else {
-                  autoValidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
+            BlocBuilder<AddNoteCubit, AddNoteState>(
+              builder: (context, state) {
+                return CustomButton(
+                  isLoading: state is AddNoteLoading ? true : false,
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      NoteModel note = NoteModel(
+                          title: title!, subTitle: subTitle!, date: DateTime
+                          .now().toString(), color: Colors.blue.g);
+                      BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                    } else {
+                      autoValidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
+                  },
+                );
               },
             ),
             SizedBox(
