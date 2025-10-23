@@ -1,35 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:tasky_app/models/note_model.dart';
 import 'package:tasky_app/widgets/custom_app_bar.dart';
 import 'package:tasky_app/widgets/custom_text_field.dart';
 
-class EditNoteView extends StatelessWidget {
-  const EditNoteView({super.key});
+import '../widgets/edit_note_view_body.dart';
 
+class EditNoteView extends StatelessWidget {
+  const EditNoteView({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 40,
-            ),
-            CustomAppBar(
-              title: 'Edit Note',
-              iconButton: IconButton(onPressed: (){}, icon: Icon(Icons.check)),
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            CustomTextField(hint: 'Title'),
-            SizedBox(
-              height: 15,
-            ),
-            CustomTextField(hint: 'Content' , maxLines: 5,),
-          ],
-        ),
-      ),
+      body: EditNoteViewBody(note: note,),
     );
   }
 }
+
+
