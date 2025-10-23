@@ -25,6 +25,7 @@ class TaskyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => GetNotesCubit(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: NotesView(),
         theme: ThemeData(
           brightness: Brightness.dark,

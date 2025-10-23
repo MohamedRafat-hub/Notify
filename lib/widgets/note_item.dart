@@ -15,14 +15,16 @@ class NoteItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return EditNoteView(note: noteModel,);
+          return EditNoteView(
+            note: noteModel,
+          );
         }));
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         padding: EdgeInsets.only(top: 16, bottom: 16, left: 16),
         decoration: BoxDecoration(
-          color: Color(0xffFFCD7A),
+          color: Color(noteModel.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -43,8 +45,33 @@ class NoteItem extends StatelessWidget {
               ),
               trailing: IconButton(
                   onPressed: () {
-                    noteModel.delete();
-                    BlocProvider.of<GetNotesCubit>(context).getAllNotes();
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text('Delete Note'),
+                            content: const Text(
+                                'Are you sure you want to delete this note ?'),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text('Cancel')),
+                              TextButton(
+                                  onPressed: () {
+                                    noteModel.delete();
+                                    BlocProvider.of<GetNotesCubit>(context)
+                                        .getAllNotes();
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    'Delete',
+                                    style: TextStyle(color: Colors.red , fontSize: 20),
+                                  ))
+                            ],
+                          );
+                        });
                   },
                   icon: Icon(
                     FontAwesomeIcons.trash,

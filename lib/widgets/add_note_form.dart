@@ -75,7 +75,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                           subTitle: subTitle!,
                           date:
                               '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-                          color: Colors.blue.r);
+                          color: Colors.blue.value);
                       BlocProvider.of<AddNoteCubit>(context).addNote(note);
                     } else {
                       autoValidateMode = AutovalidateMode.always;
@@ -126,7 +126,8 @@ class ColorsListView extends StatefulWidget {
 class _ColorsListViewState extends State<ColorsListView> {
   int currentIndex = 0;
 
-  List<Color> colors = [
+  List<Color> colors = const [
+    Colors.blue,
     Color(0xFFFF8F8F),
     Color(0xFFC2E2FA),
     Color(0xFFB7A3E3),
@@ -134,7 +135,6 @@ class _ColorsListViewState extends State<ColorsListView> {
     Color(0xFF647FBC),
     Color(0xFF91ADC8),
     Color(0xFFFADA7A),
-    Colors.blue,
     Colors.orange,
     Colors.amberAccent,
     Colors.greenAccent,
@@ -153,6 +153,7 @@ class _ColorsListViewState extends State<ColorsListView> {
             child:  GestureDetector(
               onTap: (){
                 currentIndex = index;
+                BlocProvider.of<AddNoteCubit>(context).color = colors[index];
                 setState(() {
 
                 });
