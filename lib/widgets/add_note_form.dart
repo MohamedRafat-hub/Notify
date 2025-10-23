@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky_app/cubits/add_note_cubit/add_note_cubit.dart';
@@ -59,7 +61,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 subTitle = value;
               },
             ),
-            ColorsListView(),
+            ColorsListView(
+            ),
             BlocBuilder<AddNoteCubit, AddNoteState>(
               builder: (context, state) {
                 return CustomButton(
@@ -94,32 +97,74 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
 
 class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
-
+  const ColorItem({super.key, required this.isActive, required this.color});
+  final bool isActive;
+  final Color color;
   @override
   Widget build(BuildContext context) {
-    return const CircleAvatar(
-      backgroundColor: Colors.blue,
-      radius: 25,
+    return isActive ?  CircleAvatar(
+      backgroundColor: Colors.white,
+      radius: 30,
+      child: CircleAvatar(
+        radius: 24,
+        backgroundColor: color,
+      ),
+    ) : CircleAvatar(
+      radius: 27,
+      backgroundColor: color,
     );
   }
 }
 
-
-class ColorsListView extends StatelessWidget {
+class ColorsListView extends StatefulWidget {
   const ColorsListView({super.key});
 
   @override
+  State<ColorsListView> createState() => _ColorsListViewState();
+}
+
+class _ColorsListViewState extends State<ColorsListView> {
+  int currentIndex = 0;
+
+  List<Color> colors = [
+    Color(0xFFFF8F8F),
+    Color(0xFFC2E2FA),
+    Color(0xFFB7A3E3),
+    Color(0xFFFBF3D1),
+    Color(0xFF647FBC),
+    Color(0xFF91ADC8),
+    Color(0xFFFADA7A),
+    Colors.blue,
+    Colors.orange,
+    Colors.amberAccent,
+    Colors.greenAccent,
+    Colors.red,
+  ];
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
-      child: ListView.separated(scrollDirection: Axis.horizontal,itemBuilder: (context,index){
-        return const ColorItem();
-      }, separatorBuilder: (context,index){
-        return SizedBox(width: 10,);
-      }, itemCount: 10),
+      height: 27 * 2,
+      child: ListView.builder(
+        itemCount: colors.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child:  GestureDetector(
+              onTap: (){
+                currentIndex = index;
+                setState(() {
+
+                });
+              },
+              child: ColorItem(
+                color: colors[index],
+                isActive: currentIndex == index,
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
-
-
