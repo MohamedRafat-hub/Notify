@@ -11,9 +11,10 @@ part 'get_notes_state.dart';
 class GetNotesCubit extends Cubit<GetNotesState> {
   GetNotesCubit() : super(GetNotesInitial());
   List<NoteModel>? notes;
-  getAllNotes() {
+  void getAllNotes() {
       var notesBox = Hive.box<NoteModel>(KNotesBox);
        notes = notesBox.values.toList();
+       emit(RefreshNotesSuccess());
        log('${notes?.length ?? 0}');
     }
 }
