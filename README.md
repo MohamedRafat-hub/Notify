@@ -1,16 +1,35 @@
-# tasky_app
+ Notes App
 
-A new Flutter project.
+A simple and beautiful Flutter Notes App that allows users to create, edit, delete, and view notes — all stored locally using Hive.
+This app was built with clean architecture and Cubit (Bloc) state management for better performance and scalability.
 
-## Getting Started
+ 
+ Features
 
-This project is a starting point for a Flutter application.
+ Add, edit, and delete notes
 
-A few resources to get you started if this is your first Flutter project:
+ Choose custom colors for each note
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ Local storage using Hive database
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ Fast and smooth UI with ModalBottomSheet
+
+ State management using Cubit (Bloc)
+
+ Simple, clean, and responsive design
+
+ 
+ Tech Stack
+
+Flutter – for cross-platform app development
+
+Dart – programming language
+
+Hive – lightweight local database
+
+Cubit (Bloc) – state management
+
+
+
+
+
